@@ -20,8 +20,6 @@ import music.mp3.song.app.song.music.tube.ztools.vPrefsUtils;
 
 import java.util.concurrent.TimeUnit;
 
-import static music.mp3.song.app.song.music.tube.MusicApp.appLovinSdk;
-
 
 public class MaxBackInterstitial implements MaxAdListener, MaxAdRevenueListener {
 
@@ -38,16 +36,13 @@ public class MaxBackInterstitial implements MaxAdListener, MaxAdRevenueListener 
 
     public void loadBackInterstitialAd(Activity activity) {
         try {
-            if (appLovinSdk == null) {
-                return;
-            }
             if (activity == null) {
                 return;
             }
             if (!MusicApp.config.ad) {
                 return;
             }
-            interstitialAd = new MaxInterstitialAd(BuildConfig.maxBackInterstitialId, appLovinSdk, activity);
+            interstitialAd = new MaxInterstitialAd(BuildConfig.maxBackInterstitialId, activity);
             interstitialAd.setListener(this);
             interstitialAd.setRevenueListener(this);
             interstitialAd.loadAd();
@@ -171,7 +166,7 @@ public class MaxBackInterstitial implements MaxAdListener, MaxAdRevenueListener 
     public void onAdRevenuePaid(MaxAd ad) {
         double revenue = ad.getRevenue(); // In USD
         // Miscellaneous data
-        String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
+        //String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
         String networkName = ad.getNetworkName(); // Display name of the network that showed the ad (e.g. "AdColony")
         String adUnitId = ad.getAdUnitId(); // The MAX Ad Unit ID
         MaxAdFormat adFormat = ad.getFormat(); // The ad format of the ad (e.g. BANNER, MREC, INTERSTITIAL, REWARDED)

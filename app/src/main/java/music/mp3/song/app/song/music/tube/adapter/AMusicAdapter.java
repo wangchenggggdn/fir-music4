@@ -97,7 +97,7 @@ public class AMusicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             if (TextUtils.equals("-1001", track.id)) {
                 viewHolder.itemContentLayout.setVisibility(View.GONE);
                 viewHolder.nativeAdLayout.setVisibility(View.VISIBLE);
-                //viewHolder.nativeAdLayout.loadAd();
+                viewHolder.nativeAdLayout.loadAd();
             } else {
                 viewHolder.itemContentLayout.setVisibility(View.VISIBLE);
                 viewHolder.titleTv.setText(track.getTitle());

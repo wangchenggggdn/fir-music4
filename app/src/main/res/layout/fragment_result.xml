@@ -54,6 +54,7 @@
         android:layout_height="120dp"
         app:lottie_fileName="loading.json"
         app:lottie_loop="true"
+        android:outlineSpotShadowColor="@color/blue"
         app:lottie_autoPlay="true" />
 
 </FrameLayout>

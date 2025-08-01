@@ -19,8 +19,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import music.mp3.song.app.song.music.tube.BuildConfig;
 import music.mp3.song.app.song.music.tube.firebase.FlurryEventReport;
 
-import static music.mp3.song.app.song.music.tube.MusicApp.appLovinSdk;
-
 public class MaxMrec implements MaxAdViewAdListener, MaxAdRevenueListener {
 
     private static MaxMrec mMaxMrecs = new MaxMrec();
@@ -43,11 +41,8 @@ public class MaxMrec implements MaxAdViewAdListener, MaxAdRevenueListener {
         if (rootView == null) {
             return;
         }
-        if (appLovinSdk == null) {
-            return;
-        }
         Context context = activity;
-        adView = new MaxAdView(BuildConfig.maxMrecId, MaxAdFormat.MREC,appLovinSdk, activity);
+        adView = new MaxAdView(BuildConfig.maxMrecId, MaxAdFormat.MREC, activity);
         adView.setListener(this);
         int heightPx = AppLovinSdkUtils.dpToPx(context, 250);
         int width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -144,7 +139,7 @@ public class MaxMrec implements MaxAdViewAdListener, MaxAdRevenueListener {
     public void onAdRevenuePaid(MaxAd ad) {
         double revenue = ad.getRevenue(); // In USD
         // Miscellaneous data
-        String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
+        //String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
         String networkName = ad.getNetworkName(); // Display name of the network that showed the ad (e.g. "AdColony")
         String adUnitId = ad.getAdUnitId(); // The MAX Ad Unit ID
         MaxAdFormat adFormat = ad.getFormat(); // The ad format of the ad (e.g. BANNER, MREC, INTERSTITIAL, REWARDED)

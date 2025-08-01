@@ -22,8 +22,6 @@ import music.mp3.song.app.song.music.tube.ztools.AdRewardedDialog;
 
 import java.util.concurrent.TimeUnit;
 
-import static music.mp3.song.app.song.music.tube.MusicApp.appLovinSdk;
-
 public class MaxRewardedAds implements MaxRewardedAdListener, MaxAdRevenueListener {
     private MaxRewardedAd rewardedAd;
     private int retryAttempt;
@@ -39,14 +37,11 @@ public class MaxRewardedAds implements MaxRewardedAdListener, MaxAdRevenueListen
         if (activity == null) {
             return;
         }
-        if (appLovinSdk == null) {
-            return;
-        }
         if (!MusicApp.config.ad) {
             return;
         }
         try {
-            rewardedAd = MaxRewardedAd.getInstance(BuildConfig.maxDownRewardId, appLovinSdk, activity);
+            rewardedAd = MaxRewardedAd.getInstance(BuildConfig.maxDownRewardId, activity);
             rewardedAd.setListener(this);
             rewardedAd.setRevenueListener(this);
             rewardedAd.loadAd();
@@ -91,7 +86,7 @@ public class MaxRewardedAds implements MaxRewardedAdListener, MaxAdRevenueListen
     public void onAdRevenuePaid(MaxAd ad) {
         double revenue = ad.getRevenue(); // In USD
         // Miscellaneous data
-        String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
+        //String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
         String networkName = ad.getNetworkName(); // Display name of the network that showed the ad (e.g. "AdColony")
         String adUnitId = ad.getAdUnitId(); // The MAX Ad Unit ID
         MaxAdFormat adFormat = ad.getFormat(); // The ad format of the ad (e.g. BANNER, MREC, INTERSTITIAL, REWARDED)

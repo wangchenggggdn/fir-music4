@@ -43,7 +43,6 @@ public class MusicApp extends MultiDexApplication implements Application.Activit
     public static MusicApp mInstance;
     public static Context sContext;
     public static Config config = new Config();
-    public static AppLovinSdk appLovinSdk;
     public static int openAbsoluteShow = 0;
 
     public static MusicApp getInstance() {
@@ -83,6 +82,7 @@ public class MusicApp extends MultiDexApplication implements Application.Activit
                 // Start loading ads
             }
         } );
+
 
         registerActivityLifecycleCallbacks(this);
         YTManager.getInstance().init(this);

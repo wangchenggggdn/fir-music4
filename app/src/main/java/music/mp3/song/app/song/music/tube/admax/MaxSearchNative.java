@@ -20,7 +20,7 @@ import music.mp3.song.app.song.music.tube.firebase.FlurryEventReport;
 public
 class MaxSearchNative extends MaxNativeAdListener implements MaxAdRevenueListener {
     public MaxSearchNative(Context context) {
-        nativeAdLoader = new MaxNativeAdLoader(BuildConfig.maxNativeTemplates, MusicApp.appLovinSdk, context);
+        nativeAdLoader = new MaxNativeAdLoader(BuildConfig.maxNativeTemplates, context);
         nativeAdLoader.setNativeAdListener(this);
         nativeAdLoader.setRevenueListener(this);
     }

@@ -19,8 +19,6 @@ import music.mp3.song.app.song.music.tube.firebase.FlurryEventReport;
 
 import java.util.concurrent.TimeUnit;
 
-import static music.mp3.song.app.song.music.tube.MusicApp.appLovinSdk;
-
 public class MaxOpenInterstitial implements MaxAdListener, MaxAdRevenueListener {
 
     private Handler mHandler = new Handler();
@@ -38,7 +36,7 @@ public class MaxOpenInterstitial implements MaxAdListener, MaxAdRevenueListener 
     private void loadInterstitialAd(Activity activity) {
 
         try {
-            interstitialAd = new MaxInterstitialAd(BuildConfig.maxOpenInterstitialId, appLovinSdk, activity);
+            interstitialAd = new MaxInterstitialAd(BuildConfig.maxOpenInterstitialId, activity);
             interstitialAd.setListener(this);
             interstitialAd.setRevenueListener(this);
             interstitialAd.loadAd();
@@ -88,7 +86,7 @@ public class MaxOpenInterstitial implements MaxAdListener, MaxAdRevenueListener 
     public void onAdRevenuePaid(MaxAd ad) {
         double revenue = ad.getRevenue(); // In USD
         // Miscellaneous data
-        String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
+        //String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
         String networkName = ad.getNetworkName(); // Display name of the network that showed the ad (e.g. "AdColony")
         String adUnitId = ad.getAdUnitId(); // The MAX Ad Unit ID
         MaxAdFormat adFormat = ad.getFormat(); // The ad format of the ad (e.g. BANNER, MREC, INTERSTITIAL, REWARDED)
@@ -109,9 +107,6 @@ public class MaxOpenInterstitial implements MaxAdListener, MaxAdRevenueListener 
     }
 
     public void showInterstitial(Activity activity) {
-        if (appLovinSdk == null) {
-            return;
-        }
         if (!MusicApp.config.ad) {
             return;
         }

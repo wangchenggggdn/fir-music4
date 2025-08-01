@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/latin_style_card_bg"
+        android:paddingBottom="5dp"
         app:elevation="8dp">
 
         <androidx.appcompat.widget.Toolbar

@@ -19,8 +19,6 @@ import music.mp3.song.app.song.music.tube.BuildConfig;
 import music.mp3.song.app.song.music.tube.MusicApp;
 import music.mp3.song.app.song.music.tube.firebase.FlurryEventReport;
 
-import static music.mp3.song.app.song.music.tube.MusicApp.appLovinSdk;
-
 public class MaxDownloadBanner implements MaxAdViewAdListener, MaxAdRevenueListener {
     private static MaxDownloadBanner mMaxPlayBanner = new MaxDownloadBanner();
     private MaxAdView adView;
@@ -38,14 +36,11 @@ public class MaxDownloadBanner implements MaxAdViewAdListener, MaxAdRevenueListe
         if (rootView == null) {
             return;
         }
-        if (appLovinSdk == null) {
-            return;
-        }
         if (!MusicApp.config.ad) {
             return;
         }
         try {
-            adView = new MaxAdView(BuildConfig.maxBannerId, appLovinSdk, activity);
+            adView = new MaxAdView(BuildConfig.maxBannerId, activity);
             adView.setListener(this);
             int width = ViewGroup.LayoutParams.MATCH_PARENT;
             int heightDp = MaxAdFormat.BANNER.getAdaptiveSize(activity).getHeight();
@@ -127,7 +122,7 @@ public class MaxDownloadBanner implements MaxAdViewAdListener, MaxAdRevenueListe
     public void onAdRevenuePaid(MaxAd ad) {
         double revenue = ad.getRevenue(); // In USD
         // Miscellaneous data
-        String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
+        //String countryCode = appLovinSdk.getConfiguration().getCountryCode(); // "US" for the United States, etc - Note: Do not confuse this with currency code which is "USD" in most cases!
         String networkName = ad.getNetworkName(); // Display name of the network that showed the ad (e.g. "AdColony")
         String adUnitId = ad.getAdUnitId(); // The MAX Ad Unit ID
         MaxAdFormat adFormat = ad.getFormat(); // The ad format of the ad (e.g. BANNER, MREC, INTERSTITIAL, REWARDED)
