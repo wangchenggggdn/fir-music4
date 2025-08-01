@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/status_bar_view2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/latin_style_card_bg"/>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            app:elevation="8dp">
+
+            <LinearLayout
+                android:id="@+id/top_bar_linear2"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/latin_style_card_bg"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
+            <!--将Toolbal放在了AppBarLayout里面，然后在RecycleView对应的下拉刷新控件中使用了 app:layout_behavior="@string/appbar_scrolling_view_behavior"这个属性，appbar_scrolling_view_behavior这个字符串是由Design库提供的。-->
+            <!--当AppBarLayout接收到滚动事件时，它内部的子控件可以指定如何去影响这些事件，通过app:layout_scrollFlags属性就能实现。-->
+            <!--app:layout_scrollFlags="scroll|enterAlways|snap"-->
+            <!--scroll：表示当RecycleView向上滚动的时候，Toolbar会随着一起向上滚动并实现隐藏-->
+            <!--enterAlways：表示当RecycleView向下滚动的时候，Toolbar会随着一起向下滚动并重新显示-->
+            <!--snap：表示当Toolbar还没有完全隐藏或显示的时候，会根据当前滚动的距离，自动选择隐藏还是显示。-->
+            <!--<android.support.design.widget.TabLayout-->
+                <!--android:id="@+id/tabLayout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FAFAFA"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/latin_style_card_bg"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:elevation="8dp">
+
+                <ImageView
+                    android:id="@+id/image_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/ic_default_cover"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/title_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="No Music"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingRight="5dp"
+                        android:minHeight="33dp">
+
+                        <TextView
+                            android:id="@+id/progress_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="00:00"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+
+                        <androidx.appcompat.widget.AppCompatSeekBar
+                            android:id="@+id/seek_bar"
+                            style="@style/Widget.AppCompat.SeekBar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="10000"
+                            tools:progress="5000"
+                            android:progressDrawable="@drawable/zl_seekbar_define_color_style"
+                            android:thumb="@drawable/dl_seekbar_thumb"
+                            />
+
+                        <TextView
+                            android:id="@+id/duration_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="00:00"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            tools:text="03:22"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/play_mode_toggle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/al_play_loop"/>
+
+                <ImageView
+                    android:id="@+id/last_iv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/icon_last"/>
+
+                <FrameLayout
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    >
+
+                    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                        android:id="@+id/loading_v"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminateTint="@color/yellow"
+                        android:visibility="gone"
+                        app:mpb_progressStyle="circular"/>
+
+                    <ImageView
+                        android:id="@+id/play_or_pause_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="6dp"
+                        android:src="@drawable/al_icon_play_white"/>
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/next_iv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/b_icon_next"/>
+                <ImageView
+                    android:id="@+id/download_iv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/zl_icon_download"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorPrimary"/>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/windowBackground"
+                app:itemBackground="@null"
+                app:itemIconTint="@drawable/navigation_selector"
+                app:itemTextColor="@drawable/navigation_selector"
+                app:menu="@menu/al_bottom_menu"/>
+        </LinearLayout>
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_leftActionMode="showSearch"
+            app:floatingSearch_searchBarMarginLeft="5dp"
+            app:floatingSearch_searchBarMarginRight="5dp"
+            app:floatingSearch_searchBarMarginTop="5dp"
+            app:floatingSearch_searchHint="Search music.."
+            app:floatingSearch_showSearchKey="true"
+            app:floatingSearch_suggestionsListAnimDuration="250"
+            app:layout_behavior="music.mp3.song.app.song.music.tube.widget.AlFloatSearchBehavior"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:id="@+id/banner_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple"
+            android:orientation="vertical"
+            android:paddingBottom="1dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/layout_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#20ca0000"
+            android:orientation="horizontal">
+
+            <music.mp3.song.app.song.music.tube.widget.ReferrerBannerLayout
+                android:id="@+id/banner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Hot Search Tags"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <co.tagview.TagLayout
+                android:id="@+id/tagView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="4dp"
+                app:container_background_color="@color/transparent"
+                app:container_border_color="@color/transparent"
+                app:container_border_radius="4dp"
+                app:container_border_width="1dp"
+                app:container_enable_drag="false"
+                app:horizontal_interval="5dp"
+                app:tag_background_color="#e81b76"
+                app:tag_border_color="#33ee615a"
+                app:tag_border_width="1dp"
+                app:tag_clickable="true"
+                app:tag_text_color="@color/white"
+                app:tag_theme="none"
+                app:vertical_interval="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mrecLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/daily_picks_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/daily_picks_tv"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Daily Picks"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/icon_right_arrow" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/genres_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <LinearLayout
+                android:id="@+id/genres_tv"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Genres"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/icon_right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/genres_ll_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="110dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
