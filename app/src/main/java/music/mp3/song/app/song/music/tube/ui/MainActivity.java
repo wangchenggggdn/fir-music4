@@ -1,5 +1,6 @@
 package music.mp3.song.app.song.music.tube.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
@@ -115,7 +116,7 @@ public class MainActivity extends BaseActivity implements IPlayback.Callback, Fo
     //@BindView(R.id.next_iv)
     ImageView nextIv;
     //@BindView(R.id.download_iv)
-    ImageView downloadIv;
+    ImageView downloadIv, downloadListIv;
     //@BindView(R.id.floating_search_view)
     FloatingSearchView mSearchView;
 
@@ -168,6 +169,7 @@ public class MainActivity extends BaseActivity implements IPlayback.Callback, Fo
         loadingV = findViewById(R.id.loading_v);
         lastIv = findViewById(R.id.last_iv);
         nextIv = findViewById(R.id.next_iv);
+        downloadListIv = findViewById(R.id.download_list);
         downloadIv = findViewById(R.id.download_iv);
         mSearchView = findViewById(R.id.floating_search_view);
 
@@ -274,6 +276,19 @@ public class MainActivity extends BaseActivity implements IPlayback.Callback, Fo
                     return;
                 }
                 AMusicAdapter.tryDownload(MainActivity.this, bean);
+            }
+        });
+
+        downloadListIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mainViewpager.getCurrentItem() == 0) {
+                    mainViewpager.setCurrentItem(1);
+                    downloadListIv.setImageResource(R.drawable.icon_download_list);
+                } else {
+                    mainViewpager.setCurrentItem(0);
+                    downloadListIv.setImageResource(R.drawable.icon_hot);
+                }
             }
         });
 
@@ -394,6 +409,7 @@ public class MainActivity extends BaseActivity implements IPlayback.Callback, Fo
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void searchSuggestions(String newText) {
         if (mSearchTask != null) {
             mSearchTask.cancel(true);

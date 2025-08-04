@@ -48,7 +48,7 @@ android {
             buildConfigField('String', 'maxNativeTemplates', '"3823dd5d1aa1cbc5"')
 
             signingConfig signingConfigs.release
-            applicationIdSuffix ".music.downloader.download.music.mp3.song.app"
+            applicationIdSuffix ".music.tube.downloader"
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -64,8 +64,8 @@ android {
             buildConfigField('String', 'maxNativeTemplates', '"4cc7967cd127aaa"')
 
             applicationIdSuffix ".example.debug"
-            minifyEnabled false
-//            shrinkResources true
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

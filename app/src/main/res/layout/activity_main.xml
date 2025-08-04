@@ -55,12 +55,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@drawable/latin_style_card_bg"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/latin_style_card_bg"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:orientation="horizontal"
@@ -98,7 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingRight="5dp"
+                        android:paddingEnd="5dp"
                         android:minHeight="33dp">
 
                         <TextView
@@ -132,59 +132,78 @@
                             android:textSize="12sp"
                             tools:text="03:22"/>
                     </LinearLayout>
-
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/play_mode_toggle"
+                    android:id="@+id/download_list"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="6dp"
-                    android:src="@drawable/al_play_loop"/>
-
-                <ImageView
-                    android:id="@+id/last_iv"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="3dp"
-                    android:src="@drawable/icon_last"/>
-
-                <FrameLayout
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    >
-
-                    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
-                        android:id="@+id/loading_v"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:indeterminateTint="@color/yellow"
-                        android:visibility="gone"
-                        app:mpb_progressStyle="circular"/>
-
-                    <ImageView
-                        android:id="@+id/play_or_pause_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="6dp"
-                        android:src="@drawable/al_icon_play_white"/>
-                </FrameLayout>
-
-                <ImageView
-                    android:id="@+id/next_iv"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/b_icon_next"/>
-                <ImageView
-                    android:id="@+id/download_iv"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/zl_icon_download"/>
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/icon_hot"/>
             </LinearLayout>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/play_mode_toggle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:src="@drawable/al_play_loop"/>
+
+            <ImageView
+                android:id="@+id/last_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_last"/>
+
+            <FrameLayout
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                >
+
+                <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                    android:id="@+id/loading_v"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:indeterminateTint="@color/yellow"
+                    android:visibility="gone"
+                    app:mpb_progressStyle="circular"/>
+
+                <ImageView
+                    android:id="@+id/play_or_pause_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="6dp"
+                    android:src="@drawable/al_icon_play_white"/>
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/next_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/b_icon_next"/>
+            <ImageView
+                android:id="@+id/download_iv"
+                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/zl_icon_download"/>
+        </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
+                android:visibility="gone"
                 android:background="@color/colorPrimary"/>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -193,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:background="?android:attr/windowBackground"
                 app:itemBackground="@null"
+                android:visibility="gone"
                 app:itemIconTint="@drawable/navigation_selector"
                 app:itemTextColor="@drawable/navigation_selector"
                 app:menu="@menu/al_bottom_menu"/>

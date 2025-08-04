@@ -67,7 +67,7 @@
                 app:container_border_width="1dp"
                 app:container_enable_drag="false"
                 app:horizontal_interval="5dp"
-                app:tag_background_color="#e81b76"
+                app:tag_background_color="@color/colorPrimary"
                 app:tag_border_color="#33ee615a"
                 app:tag_border_width="1dp"
                 app:tag_clickable="true"
@@ -119,6 +119,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/genres_panel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

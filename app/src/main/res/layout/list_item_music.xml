@@ -94,16 +94,15 @@
         <ImageView
             android:id="@+id/download_iv"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:paddingVertical="13dp"
             android:src="@drawable/icon_item_download" />
 
         <ImageView
             android:id="@+id/play_iv"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingVertical="15dp"
+            android:layout_height="40dp"
             android:src="@drawable/icon_item_play" />
     </LinearLayout>
 

@@ -29,7 +29,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:text="Error\nClick to Try Again!"
-        android:textColor="@color/purple"
+        android:textColor="@color/black"
         android:textSize="16dp"
         android:visibility="gone" />
 
@@ -43,7 +43,7 @@
         android:drawableTop="@drawable/zl_icon_empty"
         android:ellipsize="end"
         android:text="So Sorry\nNot contain this related music.\nThank you for your patience."
-        android:textColor="@color/purple"
+        android:textColor="@color/black"
         android:textSize="16dp"
         android:visibility="gone" />
 

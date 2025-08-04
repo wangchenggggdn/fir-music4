@@ -21,6 +21,7 @@
             android:background="@android:color/transparent"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:elevation="0dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <com.google.android.material.tabs.TabLayout
@@ -30,6 +31,7 @@
             app:tabTextColor="#CCFFFFFF"
             app:tabSelectedTextColor="#FFFFFF"
             app:tabIndicatorColor="#FFFFFF"
+            android:elevation="0dp"
             android:background="@android:color/transparent"/>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
+        android:visibility="gone"
         android:src="@drawable/ic_search_6060_24dp"
         app:backgroundTint="@color/colorAccent"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

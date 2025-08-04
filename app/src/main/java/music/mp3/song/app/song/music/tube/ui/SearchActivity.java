@@ -125,9 +125,10 @@ public class SearchActivity extends BaseActivity {
         } else {
             mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         }
+
         mTabLayout.setTabTextColors(ContextCompat.getColor(this, R.color.dark_gray), ContextCompat.getColor(this, R.color.white));
         mTabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.white));
-        ViewCompat.setElevation(mTabLayout, 10);
+        ViewCompat.setElevation(mTabLayout, 0);
         mTabLayout.setupWithViewPager(mViewPager);
 
     }

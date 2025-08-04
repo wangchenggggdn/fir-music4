@@ -16,7 +16,7 @@
         android:id="@+id/banner_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/purple"
+        android:background="@color/black"
         android:orientation="vertical"
         android:paddingBottom="1dp"
         android:visibility="gone"/>
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Download Path:"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="14sp"/>
 
             <TextView
@@ -49,7 +49,7 @@
                 android:padding="10dp"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 tools:text="dddddd"/>
         </LinearLayout>
@@ -68,11 +68,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/folder"
                 android:drawablePadding="6dp"
                 android:text="Import"
                 android:gravity="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/white"
                 android:textSize="13sp"
                 tools:text="Import" />
         </LinearLayout>
@@ -113,7 +112,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:text="Import downloaded songs\nor Search music and download"
-            android:textColor="@color/purple"
+            android:textColor="@color/black"
             android:textSize="16dp"
             android:visibility="gone"/>
 
