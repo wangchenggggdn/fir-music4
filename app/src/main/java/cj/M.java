@@ -1,13 +1,24 @@
 package cj;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+
 import android.widget.RemoteViews;
 
+import cs.K;
+import hifi.music.tube.downloader.R;
 import jf.CI;
+import s.H;
 
 
 public class M extends Service implements BT, BT.Callback {
@@ -201,7 +212,10 @@ public class M extends Service implements BT, BT.Callback {
     @Override
     public void onPlayStatusChanged(boolean isPlaying) {
         showNotification();
-
+        CI music = mPlayer.getPlayingSong();
+        if (music != null && isPlaying) {
+            showNotify(music.getTitle());
+        }
     }
 
     // Notification
@@ -301,4 +315,34 @@ public class M extends Service implements BT, BT.Callback {
 //    private PendingIntent getPendingIntent(String action) {
 //        return PendingIntent.getService(this, 0, new Intent(action), 0);
 //    }
+
+    private NotificationManager notificationManager;//通知
+    Notification notification;
+    int notification_id = 100144;
+
+    private void showNotify(String contentText) {
+        try {
+            Intent intent = new Intent(s.H.getInstance(), K.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(H.getInstance(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel("player", "Music EQ", NotificationManager.IMPORTANCE_DEFAULT);
+                channel.setDescription("Music EQ");
+                if (notificationManager == null) {
+                    notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                }
+                notificationManager.createNotificationChannel(channel);
+            }
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "player");
+            notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
+            notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+            notificationBuilder.setContentIntent(pendingIntent);
+            notificationBuilder.setContentTitle(getString(R.string.app_name));
+            notificationBuilder.setContentText(contentText);
+            notificationBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
+            notificationBuilder.setOngoing(true);
+            startForeground(10001, notificationBuilder.build());
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
 }
