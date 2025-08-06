@@ -137,8 +137,8 @@
  -dontwarn okhttp3.internal.platform.ConscryptPlatform
 
 # my own bean-------------------------------------------------
--keep class * extends music.mp3.song.app.song.music.tube.bean.BaseBean {*;}
--keep class music.mp3.song.app.song.music.tube.network.JamMusicApi {*;}
+-keep class * extends jf.CA {*;}
+-keep class hifi.music.tube.downloader.network.JamMusicApi {*;}
 
 
 # gson--------------------------------------------------------
@@ -478,3 +478,29 @@
 
 ## For some reason NotificationModeConfigFragment wasn't kept (only referenced in a preference xml)
 -keep class org.schabi.newpipe.settings.notifications.** { *; }
+
+# Retrofit 混淆规则
+-keepattributes Signature
+-keepattributes *Annotation*
+-keepattributes Exceptions
+
+-keep class retrofit2.** { *; }
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+
+# 保持所有 JSON 模型类
+-keepclassmembers class ** {
+    public <init>(org.json.JSONObject);
+}
+
+# 保持所有数据类
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}

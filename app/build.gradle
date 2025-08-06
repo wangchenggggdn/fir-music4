@@ -6,18 +6,19 @@ apply plugin: 'stringfog'
 stringfog {
     implementation 'com.github.megatronking.stringfog.xor.StringFogImpl'
     enable true
-    fogPackages = ['org.schabi.newpipe.extractor', 'song.downloader.music.tube']
+    fogPackages = ['org.schabi.newpipe.extractor', 'hifi.music.tube.downloader']
 }
+
 //apply plugin: "xml-class-guard"
 //xmlClassGuard {
 //    mappingFile = file("xml-class-mapping.txt")
-//    packageChange = ["song.downloader.music.tube": "music.mp3.song.app.song.music.tube"]
-//    moveDir = ["song.downloader.music.tube": "music.mp3.song.app.song.music.tube"]
+//    packageChange = ["music.mp3.song.app.song.music.tube": "hifi.music.tube.downloader"]
+//    moveDir = ["music.mp3.song.app.song.music.tube": "hifi.music.tube.downloader"]
 //}
 
 android {
     compileSdk 35
-    namespace "music.mp3.song.app.song.music.tube"
+    namespace "hifi.music.tube.downloader"
 
     defaultConfig {
         applicationId "hifi"
@@ -36,16 +37,17 @@ android {
         }
     }
 
+
     buildTypes {
         release {
 
-            buildConfigField('String', 'maxOpenInterstitialId', '"245ad3c885395116"')
-            buildConfigField('String', 'maxBackInterstitialId', '"e6c0a2cf653c681c"')
-            buildConfigField('String', 'maxDownInterstitialId', '"800faf074a16e75d"')
-            buildConfigField('String', 'maxBannerId', '"839a4fee76c0d491"')
-            buildConfigField('String', 'maxDownRewardId', '"d89f295a1d43dc2c"')
-            buildConfigField('String', 'maxMrecId', '"f6e2c5f04f5aeb1d"')
-            buildConfigField('String', 'maxNativeTemplates', '"3823dd5d1aa1cbc5"')
+            buildConfigField('String', 'maxOpenInterstitialId', '"a9ac2402d9707fc0"')
+            buildConfigField('String', 'maxBackInterstitialId', '"75552ea1e96d44fe"')
+            buildConfigField('String', 'maxDownInterstitialId', '"9a1439cea46c28fe"')
+            buildConfigField('String', 'maxBannerId', '"b84a0b88d0a2c4ee"')
+            buildConfigField('String', 'maxDownRewardId', '"0adaa1a4c3b3507a"')
+            buildConfigField('String', 'maxMrecId', '"ec61d6327381dbd7"')
+            buildConfigField('String', 'maxNativeTemplates', '"34233516b0e8365c"')
 
             signingConfig signingConfigs.release
             applicationIdSuffix ".music.tube.downloader"

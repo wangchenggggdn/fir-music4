@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<music.mp3.song.app.song.music.tube.recommend.SmallRecommend xmlns:android="http://schemas.android.com/apk/res/android"
+<dc.G xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -36,4 +36,4 @@
             android:layout_height="0dp" />
 
     </FrameLayout>
-</music.mp3.song.app.song.music.tube.recommend.SmallRecommend>
+</dc.G>

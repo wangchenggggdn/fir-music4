@@ -34,7 +34,7 @@
             android:background="#20ca0000"
             android:orientation="horizontal">
 
-            <music.mp3.song.app.song.music.tube.widget.ReferrerBannerLayout
+            <ft.A
                 android:id="@+id/banner_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -55,7 +55,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <co.tagview.TagLayout
+            <jp.B
                 android:id="@+id/tagView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

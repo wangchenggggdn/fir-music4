@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="music.mp3.song.app.song.music.tube">
+    package="hifi.music.tube.downloader">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,7 +27,7 @@
     </queries>
 
     <application
-        android:name="music.mp3.song.app.song.music.tube.MusicApp"
+        android:name="s.H"
         android:allowBackup="true"
         android:hasFragileUserData="true"
         android:icon="@mipmap/ic_launcher"
@@ -39,7 +39,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="music.mp3.song.app.song.music.tube.ui.AlSplashActivity"
+            android:name="cs.I"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -50,14 +50,14 @@
 
 
         <activity
-            android:name="music.mp3.song.app.song.music.tube.ui.DailyPickGenreListActivity"
+            android:name="cs.J"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustNothing" />
 
         <activity
-            android:name="music.mp3.song.app.song.music.tube.ui.MainActivity"
+            android:name="cs.K"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -65,38 +65,38 @@
 
 
         <activity
-            android:name="music.mp3.song.app.song.music.tube.ui.AlGenresActivity"
+            android:name="cs.L"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustNothing" />
 
         <service
-            android:name="music.mp3.song.app.song.music.tube.player.PlaybackService"
+            android:name="cj.M"
             android:foregroundServiceType="mediaPlayback"
             android:exported="true">
             <intent-filter>
-                <action android:name="music.mp3.song.app.song.music.tube.ACTION.PLAY_TOGGLE" />
-                <action android:name="music.mp3.song.app.song.music.tube.ACTION.PLAY_NEXT" />
-                <action android:name="music.mp3.song.app.song.music.tube.ACTION.PLAY_LAST" />
-                <action android:name="music.mp3.song.app.song.music.tube.ACTION.STOP_SERVICE" />
+                <action android:name="hifi.music.tube.downloader.ACTION.PLAY_TOGGLE" />
+                <action android:name="hifi.music.tube.downloader.ACTION.PLAY_NEXT" />
+                <action android:name="hifi.music.tube.downloader.ACTION.PLAY_LAST" />
+                <action android:name="hifi.music.tube.downloader.ACTION.STOP_SERVICE" />
             </intent-filter>
         </service>
 
         <activity
-            android:name="music.mp3.song.app.song.music.tube.arate.ARatingActivity"
+            android:name="hh.N"
             android:theme="@style/DialogStyle" />
         <activity
-            android:name="music.mp3.song.app.song.music.tube.recommend.RecommendDialogActivity"
+            android:name="dc.O"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:theme="@style/recom_dialog" />
         <activity
-            android:name="music.mp3.song.app.song.music.tube.ui.SearchActivity"
+            android:name="cs.P"
             android:screenOrientation="portrait" />
 
         <receiver
-            android:name="music.mp3.song.app.song.music.tube.firebase.InstallReferrer"
+            android:name="es.Q"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
@@ -115,7 +115,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
         <provider
-            android:name="music.mp3.song.app.song.music.tube.bean.ZAppFileProvider"
+            android:name="jf.S"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
